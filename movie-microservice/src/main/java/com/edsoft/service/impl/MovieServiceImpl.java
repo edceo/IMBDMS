@@ -5,10 +5,7 @@ import com.edsoft.domain.dto.Search;
 import com.edsoft.repository.MovieRepository;
 import com.edsoft.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestOperations;
 
 /**
  * Created by yusuf on 12.11.2016.
@@ -16,13 +13,22 @@ import org.springframework.web.client.RestOperations;
 @Service
 public class MovieServiceImpl implements MovieService {
 
+    private final MovieRepository movieRepository;
+
     @Autowired
-    private MovieRepository movieRepository;
+    public MovieServiceImpl(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
 
 
     @Override
-    public Movie getMovieById(int id) {
+    public Movie detailMovieById(int id) {
         return movieRepository.detailById(id);
+    }
+
+    @Override
+    public Movie detailMovieByImdbId(String imdbId) {
+        return movieRepository.detailByImdbId(imdbId);
     }
 
     @Override
@@ -31,7 +37,12 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public Search searchMovieSeason(String name, int id) {
-        return movieRepository.searchBySeason(name, id);
+    public Search searchMovieByNameAndSeason(String name, int season) {
+        return movieRepository.searchByNameAndSeason(name, season);
+    }
+
+    @Override
+    public Search searchMovieByIdAndSeason(String imdbId, int season) {
+        return movieRepository.searchByIdAndSeason(imdbId, season);
     }
 }

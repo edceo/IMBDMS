@@ -12,8 +12,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class MovieLinkServiceImpl implements MovieLinkService {
 
+    private final MovieLinkRepository movieLinkRepository;
+
     @Autowired
-    private MovieLinkRepository movieLinkRepository;
+    public MovieLinkServiceImpl(MovieLinkRepository movieLinkRepository) {
+        this.movieLinkRepository = movieLinkRepository;
+    }
 
     @Override
     public MovieLink getMovieLink(String id) {

@@ -17,28 +17,38 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MovieLinkController {
 
-    @Autowired
-    public MovieLinkService movieLinkService;
+    private final MovieLinkService movieLinkService;
+
+    private final MovieService movieService;
 
     @Autowired
-    public MovieService movieService;
-
-    @RequestMapping("/movielink/{id}")
-    public ModelAndView getMovieLink(@PathVariable("id") String id) {
-        MovieLink movieLink = movieLinkService.getMovieLink(id);
-        Movie movie = movieService.getMovieById(movieLink.getImdbId());
-        return new ModelAndView("mv", "movielink", movieLink);
+    public MovieLinkController(MovieLinkService movieLinkService, MovieService movieService) {
+        this.movieLinkService = movieLinkService;
+        this.movieService = movieService;
     }
 
-    @RequestMapping("/search/{name}")
-    public ModelAndView getMovies(@PathVariable("name") String name) {
+    @RequestMapping("/movie/{id}")
+    public ModelAndView getMovieDetail(@PathVariable("id") String id) {
+        MovieLink movieLink = movieLinkService.getMovieLink(id);
+        Movie movie = movieService.detailMovieById(movieLink.getImdbId());
+        return new ModelAndView("detail", "movie", movie);
+    }
+
+    @RequestMapping("/movie/imdb/{imdb}")
+    public ModelAndView getMovieDetailByImdbId(@PathVariable String imdb) {
+        Movie movie = movieService.detailMovieByImdbId(imdb);
+        return new ModelAndView("detail", "movie", movie);
+    }
+
+    @RequestMapping("/movie/search/{name}")
+    public ModelAndView searchMoviesByName(@PathVariable("name") String name) {
         Search s = movieService.searchMovieByName(name);
-        return new ModelAndView("mv", "search", s.getSearch());
+        return new ModelAndView("search", "search", s.getSearch());
     }
 
     @RequestMapping("/search/{name}/{season}")
-    public ModelAndView getMoviesSeason(@PathVariable String name, @PathVariable int season) {
-        Search s = movieService.searchMovieSeason(name, season);
-        return new ModelAndView("mv", "search", s.getEpisodes());
+    public ModelAndView searchMoviesByNameAndSeason(@PathVariable String name, @PathVariable int season) {
+        Search s = movieService.searchMovieByNameAndSeason(name, season);
+        return new ModelAndView("search", "search", s.getEpisodes());
     }
 }

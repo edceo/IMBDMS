@@ -6,6 +6,7 @@ import com.edsoft.repository.MovieRepository;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
@@ -22,33 +23,49 @@ public class MovieRepositoryImpl implements MovieRepository {
         gson = new Gson();
     }
 
+    private final RestTemplate restTemplate;
+
     @Autowired
-    private RestTemplate restTemplate;
+    public MovieRepositoryImpl(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @Override
-    public Movie detailById(int imdbId) {
-        String m = restTemplate.getForObject("http://www.omdbapi.com/?i=tt0" + imdbId + "&plot=full&r=json",
+    public Movie detailById(int id) {
+        String m = restTemplate.getForObject("http://www.omdbapi.com/?i=tt0" + id + "&plot=full&r=json",
                 String.class);
-        Movie k = gson.fromJson(m, Movie.class);
 
-        return new Movie();
+        return gson.fromJson(m, Movie.class);
+    }
+
+    @Override
+    public Movie detailByImdbId(String imdbId) {
+        String m = restTemplate.getForObject("http://www.omdbapi.com/?i=" + imdbId + "&plot=full&r=json",
+                String.class);
+
+        return gson.fromJson(m, Movie.class);
     }
 
     @Override
     public Search searchByName(String name) {
         String m = restTemplate.getForObject("http://www.omdbapi.com/?s=" + name + "&plot=full&r=json",
                 String.class);
-        Search k = gson.fromJson(m, Search.class);
 
 
-        return k;
+        return gson.fromJson(m, Search.class);
     }
 
     @Override
-    public Search searchBySeason(String name, int season) {
+    public Search searchByNameAndSeason(String name, int season) {
         String m = restTemplate.getForObject("http://www.omdbapi.com/?t=" + name + "&Season=" + season,
                 String.class);
-        Search k = gson.fromJson(m, Search.class);
-        return null;
+        return gson.fromJson(m, Search.class);
+    }
+
+    @Override
+    public Search searchByIdAndSeason(String imdbId, int season) {
+        String m = restTemplate.getForObject("http://www.omdbapi.com/?i=" + imdbId + "&Season=" + season,
+                String.class);
+        return gson.fromJson(m, Search.class);
     }
 }

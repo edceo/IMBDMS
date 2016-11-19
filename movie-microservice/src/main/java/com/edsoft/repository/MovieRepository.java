@@ -8,9 +8,13 @@ import com.edsoft.domain.dto.Search;
  */
 public interface MovieRepository {
 
-    Movie detailById(int imdbId);
+    Movie detailById(int id);
+
+    Movie detailByImdbId(String imdbId);
 
     Search searchByName(String name);
 
-    Search searchBySeason(String name, int season);
+    Search searchByNameAndSeason(String name, int season);
+
+    Search searchByIdAndSeason(String imdbId, int season);
 }

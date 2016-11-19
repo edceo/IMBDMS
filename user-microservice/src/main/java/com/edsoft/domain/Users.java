@@ -2,9 +2,13 @@ package com.edsoft.domain;
 
 //import com.edsoft.domain.dto.MovieLink;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Set;
 
 /**
@@ -12,7 +16,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "users")
-public class Users implements Serializable {
+public class Users implements Serializable, UserDetails {
 
     @Id
     @NotNull
@@ -87,8 +91,38 @@ public class Users implements Serializable {
         this.zipCode = zipCode;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
     }
 
     public void setPassword(String password) {
