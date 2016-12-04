@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+>
 <head>
-    <title>Inventory Home</title>
+    <title>Movie Microservice</title>
 </head>
 <body>
 <p th:text="${movie.Title}"></p>
-<img th:src="${movie.Poster}" />
+<img th:src="${movie.Poster}"/>
+<p th:text="${movie.Plot}"></p>
 
 <h1>Welcome!</h1>
 </body>
