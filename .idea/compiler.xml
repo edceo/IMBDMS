@@ -1,31 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <resourceExtensions />
-    <wildcardResourcePatterns>
-      <entry name="!?*.java" />
-      <entry name="!?*.form" />
-      <entry name="!?*.class" />
-      <entry name="!?*.groovy" />
-      <entry name="!?*.scala" />
-      <entry name="!?*.flex" />
-      <entry name="!?*.kt" />
-      <entry name="!?*.clj" />
-      <entry name="!?*.aj" />
-    </wildcardResourcePatterns>
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="false">
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+      <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="api-gateway-microservice" />
         <module name="eureka-microservice" />
         <module name="movie-microservice" />
         <module name="rating-microservice" />
+        <module name="rating-service" />
         <module name="ui-microservice" />
         <module name="user-microservice" />
       </profile>
@@ -34,8 +19,10 @@
       <module name="api-gateway-microservice" target="1.8" />
       <module name="eureka-microservice" target="1.8" />
       <module name="IMBDMS" target="1.8" />
+      <module name="imbdms" target="1.8" />
       <module name="movie-microservice" target="1.8" />
       <module name="rating-microservice" target="1.8" />
+      <module name="rating-service" target="1.8" />
       <module name="ui-microservice" target="1.8" />
       <module name="user-microservice" target="1.8" />
     </bytecodeTargetLevel>

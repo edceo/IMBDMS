@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <artifactId>rating-service</artifactId>
+    <artifactId>rating-microservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>rating-service</name>
+    <name>rating-microservice</name>
     <description>Rating for Spring Boot</description>
 
     <parent>
