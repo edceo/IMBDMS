@@ -1,14 +1,14 @@
 package com.edsoft.service.impl;
 
 import com.edsoft.domain.Movie;
-import com.edsoft.domain.dto.Search;
+import com.edsoft.domain.Search;
 import com.edsoft.repository.MovieRepository;
 import com.edsoft.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by yusuf on 12.11.2016.
+ * Created by edsoft on 12/16/16.
  */
 @Service
 public class MovieServiceImpl implements MovieService {

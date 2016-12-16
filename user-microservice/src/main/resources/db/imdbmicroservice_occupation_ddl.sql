@@ -1,5 +1,0 @@
-CREATE TABLE occupation
-(
-    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    occupation VARCHAR(32) NOT NULL
-);

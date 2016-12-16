@@ -1,10 +1,10 @@
 package com.edsoft.repository;
 
-import com.edsoft.domain.dto.MovieLink;
+import com.edsoft.domain.MovieLink;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- * Created by yusuf on 12.11.2016.
+ * Created by edsoft on 12/16/16.
  */
 public interface MovieLinkRepository extends CrudRepository<MovieLink, Integer> {
 }

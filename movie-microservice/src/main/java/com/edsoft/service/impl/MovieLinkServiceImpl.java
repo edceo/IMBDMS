@@ -1,13 +1,13 @@
 package com.edsoft.service.impl;
 
-import com.edsoft.domain.dto.MovieLink;
+import com.edsoft.domain.MovieLink;
 import com.edsoft.repository.MovieLinkRepository;
 import com.edsoft.service.MovieLinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by yusuf on 12.11.2016.
+ * Created by edsoft on 12/16/16.
  */
 @Service
 public class MovieLinkServiceImpl implements MovieLinkService {
@@ -24,3 +24,4 @@ public class MovieLinkServiceImpl implements MovieLinkService {
         return movieLinkRepository.findOne(Integer.parseInt(id));
     }
 }
+

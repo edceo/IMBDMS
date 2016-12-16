@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL - imdbmicroservice@localhost" uuid="18b5aaa4-c943-42c0-bf76-b43abb0e48c8">
+    <data-source source="LOCAL" name="IMDBMS" uuid="f13acb26-b936-4934-be7f-58ed50bddd9d">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>

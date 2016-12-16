@@ -1,13 +1,13 @@
 package com.edsoft.service;
 
 import com.edsoft.domain.Movie;
-import com.edsoft.domain.dto.Search;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import com.edsoft.domain.Search;
+
 
 /**
- * Created by yusuf on 12.11.2016.
+ * Created by edsoft on 12/16/16.
  */
-@RepositoryRestResource(collectionResourceRel = "movie", path = "movie")
+
 public interface MovieService {
     Movie detailMovieById(int id);
 

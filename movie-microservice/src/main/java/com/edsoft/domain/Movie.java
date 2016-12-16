@@ -1,11 +1,9 @@
 package com.edsoft.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
- * Created by yusuf on 12.11.2016.
+ * Created by edsoft on 12/16/16.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Movie {
     private String Title;
     private String Year;
