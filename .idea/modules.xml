@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/imbdms.iml" filepath="$PROJECT_DIR$/imbdms.iml" />
       <module fileurl="file://$PROJECT_DIR$/movie-microservice/movie-microservice.iml" filepath="$PROJECT_DIR$/movie-microservice/movie-microservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/rating-microservice/rating-microservice.iml" filepath="$PROJECT_DIR$/rating-microservice/rating-microservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rating-microservice/rating-service.iml" filepath="$PROJECT_DIR$/rating-microservice/rating-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/ui-microservice/ui-microservice.iml" filepath="$PROJECT_DIR$/ui-microservice/ui-microservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-microservice/user-microservice.iml" filepath="$PROJECT_DIR$/user-microservice/user-microservice.iml" />
     </modules>

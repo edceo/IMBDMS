@@ -11,6 +11,9 @@ spring:
       url: jdbc:mysql://localhost:3306/imdbmicroservice
       username: root
       password: 1
+  data:
+      rest:
+        base-path: /api
 
 
 # Map the error path to error template (for Thymeleaf)
