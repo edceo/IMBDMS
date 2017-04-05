@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by edsoft on 12/16/16.
+ * Created by yusuf on 12.11.2016.
  */
 @Service
 public class MovieServiceImpl implements MovieService {
@@ -29,6 +29,11 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public Movie detailMovieByImdbId(String imdbId) {
         return movieRepository.detailByImdbId(imdbId);
+    }
+
+    @Override
+    public Movie detailByName(String name) {
+        return movieRepository.detailByName(name);
     }
 
     @Override

@@ -1,10 +1,15 @@
 package com.edsoft.domain;
 
-/**
- * Created by edsoft on 12/16/16.
- */
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.validation.constraints.NotNull;
+
+/**
+ * Created by yusuf on 12.11.2016.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Movie {
+    @NotNull
     private String Title;
     private String Year;
     private String Rated;

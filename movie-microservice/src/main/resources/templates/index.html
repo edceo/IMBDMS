@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Inventory Home</title>
+</head>
+<body>
+<nav role="navigation">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/movie/5">Users</a></li>
+        <li><a href="/search/Game of Thrones/2">Items</a></li>
+    </ul>
+</nav>
+
+<form action="#" th:action="@{/movies/detail/}" th:object="${movie}" method="GET">
+    <p>Film Detay Bul: <input type="text" th:field="*{Title}" placeholder="Filmin İsmini Girin" /></p>
+    <p th:if="${#fields.hasErrors('Title')}" th:errors="*{Title}">Name Error</p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+<form action="#" th:action="@{/movies/search/}" th:object="${movie}" method="GET">
+    <p>Dizi Ara: <input type="text" th:field="*{Title}" placeholder="Dizinin İsmini Girin" /><input type="text" th:field="*{totalSeasons}" placeholder="Sezon Sayısı Giriniz" /></p>
+    <p th:if="${#fields.hasErrors('Title')}" th:errors="*{Title}">Name Error</p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

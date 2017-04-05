@@ -3,9 +3,10 @@ package com.edsoft.service;
 import com.edsoft.domain.MovieLink;
 
 /**
- * Created by edsoft on 12/16/16.
+ * Created by yusuf on 12.11.2016.
  */
-
 public interface MovieLinkService {
+
     MovieLink getMovieLink(String id);
 }
+

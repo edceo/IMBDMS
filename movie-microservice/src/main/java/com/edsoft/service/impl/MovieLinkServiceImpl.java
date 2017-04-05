@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by edsoft on 12/16/16.
+ * Created by yusuf on 12.11.2016.
  */
 @Service
 public class MovieLinkServiceImpl implements MovieLinkService {
@@ -24,4 +24,3 @@ public class MovieLinkServiceImpl implements MovieLinkService {
         return movieLinkRepository.findOne(Integer.parseInt(id));
     }
 }
-

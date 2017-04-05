@@ -2,6 +2,10 @@
 spring:
   application:
      name: movie-service
+  freemarker:
+     enabled: false           # Ignore Eureka dashboard FreeMarker templates
+  thymeleaf:
+      cache: false   # Service registers under this name
     # Trailing / mandatory
   datasource:
       url: jdbc:mysql://localhost:3306/imdbmicroservice

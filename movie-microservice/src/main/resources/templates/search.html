@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Inventory Home</title>
+</head>
+<body>
+<div th:each="s:${search}">
+    <a th:href="@{/movie/imdb/{id}(id=${s.imdbID})}" th:text="${s.Title}"></a>
+
+
+</div>
+</body>
+</html>

@@ -35,16 +35,6 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>com.edsoft</groupId>
-            <artifactId>user-microservice</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.edsoft</groupId>
-            <artifactId>movie-microservice</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <dependencyManagement>

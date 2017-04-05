@@ -1,9 +1,7 @@
 package com.edsoft.repository.impl;
 
 import com.edsoft.domain.Movie;
-import com.edsoft.domain.MovieLink;
 import com.edsoft.domain.Search;
-import com.edsoft.repository.MovieLinkRepository;
 import com.edsoft.repository.MovieRepository;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,34 +9,44 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * Created by edsoft on 12/16/16.
+ * Created by yusuf on 12.11.2016.
  */
 @Repository
 public class MovieRepositoryImpl implements MovieRepository {
+
     private static Gson gson;
 
     static {
         gson = new Gson();
     }
 
+
     private final RestTemplate restTemplate;
-    private MovieLinkRepository movieLinkRepository;
 
     @Autowired
-    public MovieRepositoryImpl(RestTemplate restTemplate, MovieLinkRepository movieLinkRepository) {
+    public MovieRepositoryImpl(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
-        this.movieLinkRepository = movieLinkRepository;
     }
 
     @Override
     public Movie detailById(int id) {
-        MovieLink movieLink = movieLinkRepository.findOne(id);
-        return detailByImdbId(movieLink.getImdbId());
+        String m = restTemplate.getForObject("http://www.omdbapi.com/?i=tt0" + id + "&plot=full&r=json",
+                String.class);
+
+        return gson.fromJson(m, Movie.class);
     }
 
     @Override
     public Movie detailByImdbId(String imdbId) {
-        String m = restTemplate.getForObject("http://www.omdbapi.com/?i=tt" + imdbId + "&plot=full&r=json",
+        String m = restTemplate.getForObject("http://www.omdbapi.com/?i=" + imdbId + "&plot=full&r=json",
+                String.class);
+
+        return gson.fromJson(m, Movie.class);
+    }
+
+    @Override
+    public Movie detailByName(String name) {
+        String m = restTemplate.getForObject("http://www.omdbapi.com/?t=" + name + "&plot=full&r=json",
                 String.class);
 
         return gson.fromJson(m, Movie.class);
